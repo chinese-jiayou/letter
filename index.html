@@ -69,7 +69,7 @@
         }
 
         .text-section {
-            width: 80%;
+            width: 100%;
             margin: 0 auto 50px;
             padding: 35px;
             background: rgba(255, 255, 255, 0.8);
@@ -79,6 +79,15 @@
             font-size: 1.1rem;
             color: #444;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .text-section {
+                padding: 25px;
+                font-size: 1rem;
+            }
         }
 
         .text-section:hover {
@@ -124,20 +133,30 @@
         
         @media (max-width: 768px) {
             .carousel {
-                height: 350px;
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%;
+            }
+            
+            .carousel-images {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
             }
         }
 
         .carousel-images {
             display: flex;
-            width: calc(100% * 8);
+            width: calc(100% * 5);
             height: 100%;
             transition: transform 0.4s ease;
             transform: translate3d(0, 0, 0);
         }
 
         .carousel-images img {
-            width: calc(100% / 8);
+            width: calc(100% / 5);
             height: 100%;
             object-fit: cover;
             object-position: center center;
@@ -188,10 +207,17 @@
             background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.95) 100%);
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            max-width: 800px;
+            width: 100%;
             border: 2px solid rgba(255, 107, 139, 0.3);
             position: relative;
             overflow: hidden;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .countdown {
+                padding: 25px;
+            }
         }
 
         .countdown::before {
@@ -376,17 +402,11 @@
             <img src="images/(3).jpg">
             <img src="images/(4).jpg">
             <img src="images/(5).jpg">
-            <img src="images/(6).jpg">
-            <img src="images/(7).jpg">
-            <img src="images/(8).jpg">
         </div>
         <button class="carousel-btn prev-btn">◀</button>
         <button class="carousel-btn next-btn">▶</button>
         <div class="carousel-indicators">
             <span class="indicator active"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
             <span class="indicator"></span>
             <span class="indicator"></span>
             <span class="indicator"></span>
@@ -472,7 +492,7 @@
 
     // 轮播
     let cur = 0;
-    const total = 8;
+    const total = 5;
     const imgs = document.getElementById('carouselImages');
     const dots = document.querySelectorAll('.indicator');
 
