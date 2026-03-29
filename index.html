@@ -442,12 +442,19 @@
     let index = 0;
     let hasPlayed = false;
 
-    // 第一次点击页面 → 自动播放第一首
-    document.addEventListener('click', function firstPlay() {
-        if (hasPlayed) return;
-        hasPlayed = true;
-        playSong(0);
-        document.removeEventListener('click', firstPlay);
+    // 页面加载完成后自动尝试加载音乐
+    window.addEventListener('DOMContentLoaded', function() {
+        // 预加载第一首音乐
+        const firstSong = musicList[0];
+        bgMusic.src = firstSong.src;
+        
+        // 第一次点击页面 → 自动播放第一首
+        document.addEventListener('click', function firstPlay() {
+            if (hasPlayed) return;
+            hasPlayed = true;
+            playSong(0);
+            document.removeEventListener('click', firstPlay);
+        });
     });
 
     function playSong(i) {
