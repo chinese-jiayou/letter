@@ -112,7 +112,7 @@
 
         .carousel {
             position: relative;
-            width: 90%;
+            width: 100%;
             height: 600px;
             margin: 0 auto 50px;
             overflow: hidden;
@@ -124,16 +124,16 @@
 
         .carousel-images {
             display: flex;
-            width: calc(100% * 10);
+            width: calc(100% * 11);
             height: 100%;
             transition: transform 0.4s ease;
             transform: translate3d(0, 0, 0);
         }
 
         .carousel-images img {
-            width: calc(100% / 10);
+            width: calc(100% / 11);
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center center;
             display: block;
         }
@@ -178,42 +178,107 @@
         .countdown {
             text-align: center;
             margin: 20px auto 40px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.95) 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            max-width: 800px;
+            border: 2px solid rgba(255, 107, 139, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown::before {
+            content: "🌸";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 40px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .countdown::after {
+            content: "🌸";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 40px;
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .countdown h2 {
-            color: #e63946;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            color: #ff6b8b;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        #loveDate {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
         }
 
         .countdown-box {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .time-item {
-            background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+            background: linear-gradient(135deg, #ff6b8b 0%, #ff4757 100%);
             color: white;
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .time-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .time-item:hover::before {
+            left: 100%;
+        }
+
+        .time-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
         }
 
         .time-item span {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-top: 5px;
         }
 
         .music-control {
@@ -258,11 +323,11 @@
             0%,100%{transform:scale(1);}50%{transform:scale(1.2);}
         }
 
-        .heart {
+        .flower {
             position: fixed;
             pointer-events: none;
             animation: fall 3s linear forwards;
-            color: #e63946;
+            color: #ff6b8b;
             font-size: 20px;
         }
         @keyframes fall {
@@ -272,7 +337,7 @@
 </head>
 <body>
 
-<div class="loader" id="loader"><div class="loader-heart">💖</div></div>
+<div class="loader" id="loader"><div class="loader-heart">🌸</div></div>
 
 <div class="music-control">
     <span id="musicIcon">🎶</span>
@@ -283,32 +348,34 @@
 
 <div class="container">
     <div class="header">
-        <h1>💖 至花花的一封信 💖</h1>
-        <p>始于初见，止于终老 · 愿我们的故事温柔且漫长</p>
+        <h1>🌸 至花花的一封信 🌸</h1>
+        <p>花花，你好呀，我没有什么昵称，可以叫我果赖</p>
     </div>
 
     <!-- 1. 真心话 -->
     <div class="text-section">
-        <h2>✨ 写给你的心里话 ✨</h2>
-        <p>遇见你，是我此生最幸运的事。就像微风遇见晚霞，星光遇见夜空，一切都来得刚刚好。</p>
-        <p>喜欢和你一起走过的每一段路，喜欢听你笑着说话的样子，喜欢和你分享生活里的点点滴滴。</p>
-        <p>我想，浪漫不是突然的惊喜，而是日复一日的陪伴。愿我们在细碎的时光里，慢慢相爱，岁岁年年。</p>
-        <p>往后余生，风雪是你，平淡是你，清贫是你，荣华是你，心底温柔是你，目光所至，也是你。</p>
+        <h2>✨ 写给花花的心里话 ✨</h2>
+        <p>花花，你是一个温柔、可爱又美好的女孩子。在我眼里，你是很珍贵很美好的存在，让我忍不住欣赏，也心生向往。</p>
+        <p>我总觉得自己很幸运，能在茫茫人海里，遇见一个这么近、这么可爱的潮汕女孩。也很欣慰，在珠海这么久，第一次有女孩子陪我聊这么多话。</p>
+        <p>我一直觉得，美好的事物，都值得被认真对待。不管结果如何，我都想用心去尝试、去努力、去靠近、去珍惜。</p>
+        <p>我想做一只小蜜蜂，靠近这朵独一无二的花，静静感受温柔与美好。</p>
+        <p>所以，花花可以给我更了解你的机会吗？</p>
     </div>
 
     <!-- 2. 轮播图 -->
     <div class="carousel">
         <div class="carousel-images" id="carouselImages">
-            <img src="images/1.gif">
-            <img src="images/2.gif">
-            <img src="images/3.gif">
-            <img src="images/4.gif">
-            <img src="images/5.gif">
-            <img src="images/6.gif">
-            <img src="images/7.gif">
-            <img src="images/8.gif">
-            <img src="images/9.gif">
-            <img src="images/10.gif">
+            <img src="images/(1).jpg">
+            <img src="images/(2).jpg">
+            <img src="images/(3).jpg">
+            <img src="images/(4).jpg">
+            <img src="images/(5).jpg">
+            <img src="images/(6).jpg">
+            <img src="images/(7).jpg">
+            <img src="images/(8).jpg">
+            <img src="images/(9).jpg">
+            <img src="images/(10).jpg">
+            <img src="images/(11).jpg">
         </div>
         <button class="carousel-btn prev-btn">◀</button>
         <button class="carousel-btn next-btn">▶</button>
@@ -323,13 +390,14 @@
             <span class="indicator"></span>
             <span class="indicator"></span>
             <span class="indicator"></span>
+            <span class="indicator"></span>
         </div>
     </div>
 
     <!-- 3. 倒计时 -->
     <div class="countdown">
-        <h2>⏳ 我们在一起的时间</h2>
-        <div id="loveDate">始于：2025年01月01日</div>
+        <h2>⏳ 初次见面时间</h2>
+        <div id="loveDate">始于：2026年03月25日</div>
         <div class="countdown-box">
             <div class="time-item" id="day">0<span>天</span></div>
             <div class="time-item" id="hour">0<span>时</span></div>
@@ -393,7 +461,7 @@
 
     // 倒计时
     function count() {
-        const start = new Date(2025,0,1);
+        const start = new Date(2026,2,25);
         const now = new Date();
         const diff = Math.max(0, now - start);
         const s = Math.floor(diff / 1000);
@@ -407,7 +475,7 @@
 
     // 轮播
     let cur = 0;
-    const total = 10;
+    const total = 11;
     const imgs = document.getElementById('carouselImages');
     const dots = document.querySelectorAll('.indicator');
 
