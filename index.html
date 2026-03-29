@@ -124,14 +124,14 @@
 
         .carousel-images {
             display: flex;
-            width: calc(100% * 11);
+            width: calc(100% * 12);
             height: 100%;
             transition: transform 0.4s ease;
             transform: translate3d(0, 0, 0);
         }
 
         .carousel-images img {
-            width: calc(100% / 11);
+            width: calc(100% / 12);
             height: 100%;
             object-fit: cover;
             object-position: center center;
@@ -376,6 +376,7 @@
             <img src="images/(9).jpg">
             <img src="images/(10).jpg">
             <img src="images/(11).jpg">
+            <img src="images/(12).jpg">
         </div>
         <button class="carousel-btn prev-btn">◀</button>
         <button class="carousel-btn next-btn">▶</button>
@@ -475,7 +476,7 @@
 
     // 轮播
     let cur = 0;
-    const total = 11;
+    const total = 12;
     const imgs = document.getElementById('carouselImages');
     const dots = document.querySelectorAll('.indicator');
 
